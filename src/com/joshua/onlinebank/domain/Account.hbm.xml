@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-8 12:47:57 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.joshua.onlinebank.domain.Account" table="account" catalog="online_bank">
+        <id name="accountid" type="java.lang.Integer">
+            <column name="accountid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="status" class="com.joshua.onlinebank.domain.Status" fetch="select" lazy="false">
+            <column name="status" not-null="true" />
+        </many-to-one>
+        <property name="username" type="string">
+            <column name="username" length="50" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="50" not-null="true" />
+        </property>
+        <property name="balance" type="double">
+            <column name="balance" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="transactionlogsForFromid" table="transactionlog" inverse="true" lazy="false" fetch="select" cascade="delete">
+            <key>
+                <column name="fromid" not-null="true" />
+            </key>
+            <one-to-many class="com.joshua.onlinebank.domain.Transactionlog" />
+        </set>
+        <set name="personinfos" table="personinfo" inverse="true" lazy="false" fetch="select" cascade="delete">
+            <key>
+                <column name="accountid" not-null="true" />
+            </key>
+            <one-to-many class="com.joshua.onlinebank.domain.Personinfo" />
+        </set>
+        <set name="transactionlogsForToid" table="transactionlog" inverse="true" lazy="false" fetch="select" cascade="delete">
+            <key>
+                <column name="toid" not-null="true" />
+            </key>
+            <one-to-many class="com.joshua.onlinebank.domain.Transactionlog" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-8 12:47:57 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.joshua.onlinebank.domain.Transactionlog" table="transactionlog" catalog="online_bank">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="transactiontype" class="com.joshua.onlinebank.domain.Transactiontype" fetch="select" lazy="false">
+            <column name="tr_type" not-null="true" />
+        </many-to-one>
+        <many-to-one name="accountByFromid" class="com.joshua.onlinebank.domain.Account" fetch="select" lazy="false">
+            <column name="fromid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="accountByToid" class="com.joshua.onlinebank.domain.Account" fetch="select" lazy="false">
+            <column name="toid" not-null="true" />
+        </many-to-one>
+        <property name="trMoney" type="double">
+            <column name="tr_money" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="datetime" type="timestamp">
+            <column name="datetime" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

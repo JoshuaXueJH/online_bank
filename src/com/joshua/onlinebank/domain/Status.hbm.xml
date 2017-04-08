@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-8 12:47:57 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.joshua.onlinebank.domain.Status" table="status" catalog="online_bank">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="50" not-null="true" />
+        </property>
+        <set name="accounts" table="account" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="status" not-null="true" />
+            </key>
+            <one-to-many class="com.joshua.onlinebank.domain.Account" />
+        </set>
+    </class>
+</hibernate-mapping>
