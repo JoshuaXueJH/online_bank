@@ -1,5 +1,5 @@
 
-<%@page import="com.netbank.entity.Account"%>
+<%@page import="com.joshua.onlinebank.domain.Account"%>
 <%
 	Account account=(Account)session.getAttribute("user");
 	if(account==null){

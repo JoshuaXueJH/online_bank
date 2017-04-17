@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   	
   <body onload="disptime()">
-	<form  method="post" name="myform" action="/netbank/transaction/withdrawal" onsubmit="return withdrawal()">
+	<form  method="post" name="myform" action="/online_bank/transaction/withdrawal" onsubmit="return withdrawal()">
 		<div align="center">
 		<table width="400" border="0" class="table">
 			<tbody>

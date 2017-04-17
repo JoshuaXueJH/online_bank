@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="/struts-tags" prefix="s" %>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -7,20 +7,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'modify.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" type="text/css" href="/netbank/style/style.css">
-	<link rel="stylesheet" type="text/css" href="/netbank/style/default.css">
+<head>
+<base href="<%=basePath%>">
 
-	<!--
+<title>My JSP 'modify.jsp' starting page</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<link rel="stylesheet" type="text/css" href="/online_bank/style/style.css">
+<link rel="stylesheet" type="text/css" href="/online_bank/style/default.css">
+
+<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 <script type="text/javascript">
@@ -138,94 +138,89 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 	}
 </script>
-  </head>
-  
-  <body>
-  <form method="post" name="myform" action="/netbank/admin/kaihu" onsubmit="return check()">
-  <div align="center">
-  	<table width="450" class="table">
-			<tbody>
-				<tr>
-					<td width="100">用户名：</td>
-					<td>
-						<input id="username" type="text" name="account.username"/>
-						<span id="errorusername" style="color:red;">${message}</span>						
-					</td>
-				</tr>
-				<tr>
-					<td>密码：</td>
-					<td>
-						<input id="pwd" type="password" name="account.password"/>
-						<span id="errorpwd" style="color:red;"></span>
-					</td>
-				</tr>
-				<tr>
-					<td>确认密码：</td>
-					<td>
-						<input id="confirmpwd" type="password"/>
-						<span id="errorconfirmpwd" style="color:red;"></span>
-					</td>
-				</tr>
-				<tr>
-					<td>开户金额：</td>
-					<td>
-						<input id="balance" type="text" name="account.balance" />
-						<span id="errorbalance" style="color:red;"></span>
-					</td>
-				</tr>
-				<tr>
-					<td>姓名：</td>
-					<td>
-						<input type="text" id="realname" name="personinfo.realname"/>
-						<span id="errorrealname" style="color:red;"></span>
-					</td>
-				</tr>
-				<tr>
-					<td>年龄：</td>
-					<td>
-						<input id="age" type="text" name="personinfo.age""/>
-						<span id="errorage" style="color:red;"></span>
-					</td>
-				</tr>
-				<tr>
-				<td>性别：</td>
-				<td>
-						<select name="personinfo.sex" >
-							<option value="男" >男</option>
-							<option value="女" >女</option>
-						</select></td></tr> 
-				<tr><td>家庭地址：</td>
-				<td>
-					<input id="address" type="text" name="personinfo.address""/>
-					<span id="erroraddress" style="color:red;"></span>
-				</td></tr>
-				<tr>
-					<td>联系电话：</td>
-					<td>
-						<input id="telephone" name="personinfo.telephone" value="${personinfo.telephone}" type="text"/>
-						
-						<font size="1">区号(3或4位)-电话(8或9位)</font>
-						<span id="errortelephone" style="color:red;"></span>
-					</td>
-				</tr>
-				<tr>
-					<td>证件号码：</td>
-					<td>
-					<input id="cardid" type="text" name="personinfo.cardid" value="${personinfo.cardid}"/>
-					<font size="1" >15位或18位</font>
-					<span id="errorcardid" style="color:red;"></span>
-					</td>
-				</tr>
-				<tr>
-				<td></td>
-				<td><input type="submit" value="提交" /> <br></td></tr>
-			</tbody>
-		</table>
-		<div style="color:red;">
-        <s:fielderror /> 
-    	</div> 
+</head>
+
+<body>
+	<form method="post" name="myform" action="/online_bank/admin/openaccount.action"
+		onsubmit="return check()">
+		<div align="center">
+			<table width="450" class="table">
+				<tbody>
+					<tr>
+						<td width="100">用户名：</td>
+						<td><input id="username" type="text" name="account.username" />
+							<span id="errorusername" style="color: red;">${message}</span>
+						</td>
+					</tr>
+					<tr>
+						<td>密码：</td>
+						<td><input id="pwd" type="password" name="account.password" />
+							<span id="errorpwd" style="color: red;"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>确认密码：</td>
+						<td><input id="confirmpwd" type="password" /> <span
+							id="errorconfirmpwd" style="color: red;"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>开户金额：</td>
+						<td><input id="balance" type="text" name="account.balance" />
+							<span id="errorbalance" style="color: red;"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>姓名：</td>
+						<td>
+							<input type="text" id="realname" name="personinfo.realname" /> 
+							<span id="errorrealname" style="color: red;"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>年龄：</td>
+						<td><input id="age" type="text" name="personinfo.age" "/> <span
+							id="errorage" style="color: red;"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>性别：</td>
+						<td><select name="personinfo.sex">
+								<option value="male">male</option>
+								<option value="female">female</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td>家庭地址：</td>
+						<td><input id="address" type="text" name="personinfo.address" "/>
+							<span id="erroraddress" style="color: red;"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>联系电话：</td>
+						<td><input id="telephone" name="personinfo.telephone"
+							value="${personinfo.telephone}" type="text" /> <font size="1">区号(3或4位)-电话(8或9位)</font>
+							<span id="errortelephone" style="color: red;"></span>
+						</td>
+					</tr>
+					<tr>
+						<td>证件号码：</td>
+						<td>
+							<input id="cardid" type="text" name="personinfo.cardid"	value="${personinfo.cardid}" /> <font size="1">15位或18位</font> 
+							<span id="errorcardid" style="color: red;"></span>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="submit" value="提交" /> <br>	</td>
+					</tr>
+				</tbody>
+			</table>
+			<div style="color: red;">
+				<s:fielderror />
+			</div>
 		</div>
 		<br>
-  </form>  	
-   </body>
+	</form>
+</body>
 </html>

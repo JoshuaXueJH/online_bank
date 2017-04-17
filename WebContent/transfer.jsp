@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   	
  <body onload="disptime()">
-<form  method="post" name="myform" action="/netbank/transaction/transfer" onsubmit="return transfer()">
+<form  method="post" name="myform" action="/online_bank/transaction/transfer" onsubmit="return transfer()">
 	<div align="center">
 	<table width="400" border="0" class="table">
 		<tbody>
@@ -85,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr>
 			<td width="100">&nbsp;对方账户：</td>
 			<td>
-				<input type="text" name="log.otherid" id="otherid" value="${log.otherid }">
+				<input type="text" name="log.toid" id="otherid" value="${log.toid }">
 				<span id="errorotherid" style="color:red;"></span>
 			</td></tr>
 			<tr>

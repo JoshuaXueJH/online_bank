@@ -8,24 +8,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>changepwd</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	
-	<link rel="stylesheet" type="text/css" href="style/style.css" >
-	<link rel="stylesheet" type="text/css" href="style/default.css" >
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-	<script language="javascript">
-	
+<head>
+<base href="<%=basePath%>"> 
+<title>changepwd</title>  
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">    
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+
+<link rel="stylesheet" type="text/css" href="style/style.css" >
+<link rel="stylesheet" type="text/css" href="style/default.css" >
+<!--
+<link rel="stylesheet" type="text/css" href="styles.css">
+-->
+<script language="javascript">
+
 	function check(){
 	var oldpwd=document.getElementById("oldpwd").value;
 	var newpwd=document.getElementById("newpwd").value;
@@ -36,7 +34,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			{
 				document.getElementById("secondpwd").style.display="inline";
 				return false;
-				
 			}
 			return true;
 		}
@@ -48,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
   </head>  	
   <body>
-	<form  method="post" name="myform" action="user/changepwd" onsubmit="return check()">
+	<form  method="post" name="myform" action="user/changepwd.action" onsubmit="return check()">
 		<div align="center">
 		<table width="400" border="0" class="table">
 			<tbody>
@@ -78,10 +75,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td>&nbsp;<input type="Submit" value="修改" /> </td>
 				</tr>
 			</tbody>
-		</table>
-			 
-		</div> 
-			
+		</table>		 
+		</div> 	
 	</form>
   </body>
 </html>

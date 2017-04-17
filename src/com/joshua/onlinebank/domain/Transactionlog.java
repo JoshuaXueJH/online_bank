@@ -11,18 +11,27 @@ public class Transactionlog implements java.io.Serializable {
 	private Integer id;
 	private Transactiontype transactiontype;
 	private Account accountByFromid;
-	private Account accountByToid;
+	private Integer toid;
+
+	public Integer getToid() {
+		return toid;
+	}
+
+	public void setToid(Integer toid) {
+		this.toid = toid;
+	}
+
 	private double trMoney;
 	private Date datetime;
 
 	public Transactionlog() {
 	}
 
-	public Transactionlog(Transactiontype transactiontype, Account accountByFromid, Account accountByToid,
-			double trMoney, Date datetime) {
+	public Transactionlog(Transactiontype transactiontype, Account accountByFromid, Integer toid, double trMoney,
+			Date datetime) {
 		this.transactiontype = transactiontype;
 		this.accountByFromid = accountByFromid;
-		this.accountByToid = accountByToid;
+		this.toid = toid;
 		this.trMoney = trMoney;
 		this.datetime = datetime;
 	}
@@ -49,14 +58,6 @@ public class Transactionlog implements java.io.Serializable {
 
 	public void setAccountByFromid(Account accountByFromid) {
 		this.accountByFromid = accountByFromid;
-	}
-
-	public Account getAccountByToid() {
-		return this.accountByToid;
-	}
-
-	public void setAccountByToid(Account accountByToid) {
-		this.accountByToid = accountByToid;
 	}
 
 	public double getTrMoney() {

@@ -3,5 +3,93 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
     "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.objectFactory" value="spring"/>
+	<constant name="struts.configuration.xml.reload" value="true"/>
 	
+	<package name="user" namespace="/user" extends="struts-default">
+		<action name="user_login" class="userAction" method="login">
+			<result name="success">/index.jsp</result>
+			<result name="login">/login.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+		<action name="user_logout" class="userAction" method="logout">
+			<result name="success">/index.jsp</result>
+			<result name="login">/login.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+		<action name="changepwd" class="userAction" method="changepwd">
+			<result name="input">/changepwd.jsp</result>
+			<result name="message">/message.jsp</result>
+		</action>
+		<action name="modifyinfo" class="userAction" method="modifyinfo">
+			<result name="message">/message.jsp</result>
+			<result name="login">/login.jsp</result>
+    		<result name="input">/modify.jsp</result>
+		</action>
+	</package>
+	<package name="transaction" namespace="/transaction" extends="struts-default">
+		<action name="deposit" class="tranAction" method="deposit">
+			<result name="message">/message.jsp</result>
+			<result name="input">/deposit.jsp</result>
+		</action>
+		<action name="withdrawal" class="tranAction" method="withdrawal">
+			<result name="message">/message.jsp</result>
+			<result name="input">/withdrawal.jsp</result>
+		</action>
+		<action name="transfer" class="tranAction" method="transfer">
+			<result name="message">/message.jsp</result>
+			<result name="input">/transfer.jsp</result>
+		</action>
+		<action name="list" class="tranAction" method="list">
+			<result name="success">/transactionlog.jsp</result>
+		</action>
+	</package>
+	<package name="admin" namespace="/admin" extends="struts-default">
+		<action name="login" class="adminAction" method="login">
+			<result name="success">/admin/manage.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		<action name="listUsers" class="adminAction" method="listUsers">
+			<result name="users">/admin/users.jsp</result>
+			<!-- <result name="login">/login.jsp</result> -->
+		</action>
+		<action name="lock" class="adminAction" method="lock">
+			<result name="list" type="redirectAction">
+				<param name="actionName">listUsers</param>
+				<param name="status.id">${status.id}</param>
+			</result>
+		</action>
+		<action name="unlock" class="adminAction" method="unlock">
+			<result name="list" type="redirectAction">
+				<param name="actionName">listUsers</param>
+				<param name="status.id">${status.id}</param>
+			</result>
+		</action>
+		<action name="changepwd" class="adminAction" method="changepwd">
+			<result name="input">/admin/changepwd.jsp</result>
+			<result name="message">/message.jsp</result>
+		</action>
+		<action name="logout" class="adminAction" method="logout">
+			<result name="success">/index.jsp</result>
+			<result name="login">/login.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+		<action name="search" class="adminAction" method="search">
+			<result name="users">/admin/users.jsp</result>
+		</action>
+		<action name="openaccount" class="adminAction" method="openaccount">
+			<result name="message">/message.jsp</result>
+			<result name="add">/admin/add.jsp</result>
+    		<result name="input">/admin/add.jsp</result>
+		</action>
+		<action name="del" class="adminAction" method="del">
+			<result name="list" type="redirectAction">
+				<param name="actionName">listUsers</param>
+				<param name="status.id">${status.id}</param>
+			</result>
+		</action>
+	</package>
 </struts>

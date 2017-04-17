@@ -8,6 +8,17 @@
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/online_bank?characterEncoding=UTF-8</property>
         <property name="hibernate.connection.username">root</property>
+        
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hbm2ddl.auto">update</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		
+		<mapping resource="com/joshua/onlinebank/domain/Account.hbm.xml"/>
+		<mapping resource="com/joshua/onlinebank/domain/Admin.hbm.xml"/>
+		<mapping resource="com/joshua/onlinebank/domain/Personinfo.hbm.xml"/>
+		<mapping resource="com/joshua/onlinebank/domain/Status.hbm.xml"/>
+		<mapping resource="com/joshua/onlinebank/domain/Transactionlog.hbm.xml"/>
+		<mapping resource="com/joshua/onlinebank/domain/Transactiontype.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

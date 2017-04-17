@@ -14,9 +14,12 @@
         <many-to-one name="accountByFromid" class="com.joshua.onlinebank.domain.Account" fetch="select" lazy="false">
             <column name="fromid" not-null="true" />
         </many-to-one>
-        <many-to-one name="accountByToid" class="com.joshua.onlinebank.domain.Account" fetch="select" lazy="false">
+        <!-- <many-to-one name="accountByToid" class="com.joshua.onlinebank.domain.Account" fetch="select" lazy="false">
             <column name="toid" not-null="true" />
-        </many-to-one>
+        </many-to-one> -->
+        <property name="toid" type="java.lang.Integer">
+            <column name="toid" not-null="true" />
+        </property>
         <property name="trMoney" type="double">
             <column name="tr_money" precision="22" scale="0" not-null="true" />
         </property>

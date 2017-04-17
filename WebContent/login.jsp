@@ -24,7 +24,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 <script language="javascript" >
 	function login(){
-	
 		var hidden=document.getElementById("hidden").value;
 		if(document.getElementById("username"+hidden).value ==""){
 			alert("用户名不能为空");
@@ -36,12 +35,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			return true;
 		}
 	}
+	
 	function adminlogin(){
 	document.getElementById("username1").style.display="none";
 	document.getElementById("password1").style.display="none";
 	document.getElementById("username2").style.display="block";
 	document.getElementById("password2").style.display="block";
-	document.myform.action="admin/login"
+	document.myform.action="admin/login.action"
 	}
 	
 	function init(){
@@ -49,10 +49,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	document.getElementById("password1").style.display="block";
 	document.getElementById("username2").style.display="none";
 	document.getElementById("password2").style.display="none";
-	document.myform.action="user/user_login";
+	document.myform.action="user/user_login.action";
 	}
-	function change(){
-	
+	function change(){	
 		var select=document.myform.type.value;
 		if(select=="0")
 		{
@@ -76,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body onload="init()">
   		<div align="center">
-		<form method="post" name="myform" action="user/user_login" onsubmit="return login()">
+		<form method="post" name="myform" action="user/user_login.action" onsubmit="return login()">
 			<table width="450" border="0" class="table">
 				<tbody>
 				<tr>

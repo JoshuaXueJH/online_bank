@@ -16,7 +16,38 @@
   	</bean>
 	
 	<!-- 配置bean -->
+	<bean id="userDao" class="com.joshua.onlinebank.dao.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory1"></property>
+	</bean>
+	<bean id="userService" class="com.joshua.onlinebank.service.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	<bean id="userAction" class="com.joshua.onlinebank.action.UserAction" scope="prototype">
+		<property name="userService" ref="userService"></property>
+	</bean>
 	
+	<bean id="tranDao" class="com.joshua.onlinebank.dao.TranDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory1"></property>
+	</bean>
+	<bean id="tranService" class="com.joshua.onlinebank.service.TranServiceImpl">
+		<property name="tranDao" ref="tranDao"></property>
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	<bean id="tranAction" class="com.joshua.onlinebank.action.TranAction" scope="prototype">
+		<property name="tranService" ref="tranService"></property>
+		<property name="userService" ref="userService"></property>
+	</bean>
+	
+	<bean id="adminDao" class="com.joshua.onlinebank.dao.AdminDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory1"></property>
+	</bean>
+	<bean id="adminService" class="com.joshua.onlinebank.service.AdminServiceImpl">
+		<property name="adminDao" ref="adminDao"></property>
+	</bean>
+	<bean id="adminAction" class="com.joshua.onlinebank.action.AdminAction" scope="prototype">
+		<property name="adminService" ref="adminService"></property>
+		<property name="userService" ref="userService"></property>
+	</bean>
   	
   	<!-- 事务的配置 -->
   	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
@@ -30,10 +61,11 @@
   	
   	<tx:advice id="tx" transaction-manager="transactionManager">
   		<tx:attributes>
-  			<tx:method name="get*" isolation="DEFAULT" propagation="SUPPORTS" read-only="true"/>
+  			<!-- <tx:method name="get*" isolation="DEFAULT" propagation="SUPPORTS" read-only="true"/>
   			<tx:method name="load*" isolation="DEFAULT" propagation="SUPPORTS" read-only="true"/>
   			<tx:method name="search*" isolation="DEFAULT" propagation="SUPPORTS" read-only="true"/>
-  			<tx:method name="*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>
+  			<tx:method name="*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/> -->
+  			<tx:method name="*" isolation="DEFAULT" propagation="REQUIRED" />
   		</tx:attributes>
   	</tx:advice>
   	<!-- 注解配置事务 -->

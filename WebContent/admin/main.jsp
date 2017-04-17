@@ -1,5 +1,5 @@
 <%@page contentType="text/html;charset=gb2312" import="java.sql.*,java.util.*"%>
-<%@page import="com.netbank.entity.Admin"%>
+<%@page import="com.joshua.onlinebank.domain.Admin"%>
 
 <%
 	if(session.getAttribute("admin")==null){

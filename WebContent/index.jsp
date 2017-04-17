@@ -11,11 +11,12 @@
 <head>
 <title>网上银行</title>
 </head>
-  <frameset framespacing="0" border="false" cols="270,*" frameborder="0">
-  <frame name="left"  scrolling="no" marginwidth="0" marginheight="0" src="/netbank/left.jsp">
-  <frame name="right" scrolling="yes" src="/netbank/information.jsp">
-</frameset>
 
-<noframes>
-</noframes> 
+	<frameset framespacing="0" border="false" cols="270,*" frameborder="0">
+		<frame name="left"  scrolling="no" marginwidth="0" marginheight="0" src="/online_bank/left.jsp">
+		<frame name="right" scrolling="yes" src="/online_bank/information.jsp">
+	</frameset>
+	<noframes>
+	</noframes> 
+
 </html>

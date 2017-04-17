@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <form method="post" name="myform" action="/netbank/info/info_modify">
+  <form method="post" name="myform" action="/online_bank/user/modifyinfo.action">
   <div align="center">
   	<table width="450" class="table">
 		<tbody>
@@ -39,8 +39,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr>
 			<td>性别：</td>
 			<td>&nbsp;<select name="personinfo.sex" >
-						<option value="男" >男</option>
-						<option value="女" >女</option>
+						<option value="男">男</option>
+						<option value="女">女</option>
 					</select></td></tr> 
 			<tr><td>家庭地址：</td>
 			<td>&nbsp;<input type="text" name="personinfo.address" value="${personinfo.address}"/></td></tr>
